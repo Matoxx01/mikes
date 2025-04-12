@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Registro de Cliente</title>
+    <link rel="stylesheet" href="./home.css" />
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+    <script src="./home.js" type="module"></script>
+
+</head>
+<body>
+
+    <!-- Toolbar -->
+    <header class="toolbar">
+        <!-- Botones de navegación (izquierda) -->
+        <div class="toolbar-left">
+            <button class="toolbar-btn">
+                <img src="../../assets/icons/back.svg" alt="Atrás" />
+            </button>
+            <button class="toolbar-btn">
+                <img src="../../assets/icons/forward.svg" alt="Adelante" />
+            </button>
+            <button class="toolbar-btn">
+                <img src="../../assets/icons/reload.svg" alt="Recargar" />
+            </button>
+        </div>
+
+        <!-- Barra de búsqueda (centro) -->
+        <div class="toolbar-center">
+            <div class="search-container">
+                <img src="../../assets/icons/lupa.svg" alt="Buscar" />
+                <input type="text" placeholder="RUT, Sin puntos ni guion" />
+                <button class="search-btn">
+                </button>
+            </div>
+        </div>
+
+        <!-- opciones (derecha) -->
+        <div class="toolbar-right">
+            <button class="toolbar-btn" id="moreOptionsBtn">
+                <img src="../../assets/icons/more.svg" alt="Más opciones" />
+            </button>
+            <!-- Menú desplegable oculto por defecto -->
+            <div class="dropdown-menu" id="moreOptionsMenu">
+                <ul class="uldropdown">
+                    <li id="manageEmployees" class="lidropdown">
+                        <a href="./manage/manage.html" class="adropdown">Gestion de empleados</a>
+                    </li>
+                    <li id="singOut" class="lidropdown">
+                        <a href="./../index.html" class="adropdown">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <h2>Registro de Cliente</h2>
+    
+    
+
+    <div id="flash-messages" class="flash-messages"></div>
+    
+</body>
+</html>

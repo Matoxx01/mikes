@@ -6,12 +6,14 @@ document.getElementById("clave").addEventListener("keypress", function(event) {
   }
 });
 
+const apiUrl = 'http://localhost:3000';
+ 
 // Evento click del botón Ingresar
 document.getElementById("btnIngresar").addEventListener("click", async function() {
   const clave = document.getElementById("clave").value;
 
   try {
-    const response = await fetch('/login', {
+    const response = await fetch(`${apiUrl}/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -23,11 +25,13 @@ document.getElementById("btnIngresar").addEventListener("click", async function(
 
     if (response.ok) {
       // Guardar localmente role y name
-      localStorage.setItem('role', data.role);
-      localStorage.setItem('name', data.name);
+      localStorage.setItem('employee', JSON.stringify({
+        role: data.role,
+        name: data.name
+      }));
       // Puedes redirigir o notificar al usuario que el login fue exitoso
       console.log('Ingreso exitoso:', data);
-      showFlashMessage(`Bienvenid@ ${data.name}!`, 'success');
+      window.location.href = 'home/home.html'; 
     } else {
       // Si la respuesta no fue ok se muestra el mensaje de error
       showFlashMessage(data.error, 'danger');
