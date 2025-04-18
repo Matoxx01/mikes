@@ -34,6 +34,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  const selectedName = localStorage.getItem('selectedClientName');
+  const title = document.getElementById('title');
+  const h2title = document.getElementById('h2title');
+
+  if (title) {
+    title.textContent = 'Nómina - ' + (selectedName || 'No Valido');
+  }
+  if (h2title) {
+    h2title.textContent = 'Nómina - ' + (selectedName || 'No Valido');
+  }
+
 });
 
 // Función para mostrar mensajes flash

@@ -60,12 +60,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById('btnIngresar').addEventListener('click', () => {
     const selectedId = document.getElementById('clientSelect').value;
+    const selectedName = document.getElementById('clientSelect').selectedOptions[0].textContent;
     if (!selectedId) {
       showFlashMessage('Debes seleccionar un cliente.', 'danger');
       return;
     }
 
     localStorage.setItem('selectedClientId', selectedId);
+    localStorage.setItem('selectedClientName', selectedName);
+
     window.location.href = 'nomina/nomina.html';
   });
 
