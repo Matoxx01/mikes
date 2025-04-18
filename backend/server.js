@@ -1,14 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { checkPassword } = require('./mysql');
+const { checkPassword, getClient } = require('./mysql');
 
 const app = express();
 
 // Middleware para parsear JSON
 app.use(bodyParser.json());
 
-// Servir archivos estáticos (index.html, index.js, index.css, etc.)
-app.use(express.static('public'));
+const path = require('path');
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Endpoint para el login
 app.post('/login', (req, res) => {
@@ -29,6 +29,16 @@ app.post('/login', (req, res) => {
       // Si no se encontró coincidencia, enviamos error
       res.status(401).json({ error: 'Clave incorrecta' });
     }
+  });
+});
+
+app.get('/client', (req, res) => {
+  getClient((err, results) => {
+    if (err) {
+      console.error('Error al obtener clientes:', err);
+      return res.status(500).json({ error: 'Error al obtener clientes' });
+    }
+    res.json(results);
   });
 });
 

@@ -1,11 +1,3 @@
-// Evento para detectar "Enter" en el input
-document.getElementById("clientSelect").addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-      event.preventDefault();
-      document.getElementById("btnIngresar").click();
-  }
-});
-
 document.addEventListener("DOMContentLoaded", () => {
   const manageEmployeesItem = document.getElementById('manageEmployees');
   const employee = JSON.parse(localStorage.getItem('employee'));
@@ -40,33 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (moreOptionsMenu.classList.contains('show')) {
       moreOptionsMenu.classList.remove('show');
     }
-  });
-
-  fetch('http://localhost:3000/client')
-    .then(response => response.json())
-    .then(clients => {
-      const select = document.getElementById('clientSelect');
-      clients.forEach(client => {
-        const option = document.createElement('option');
-        option.value = client.id;
-        option.textContent = client.name;
-        select.appendChild(option);
-      });
-    })
-    .catch(error => {
-      console.error('Error al obtener clientes:', error);
-      showFlashMessage('Error al cargar clientes.', 'danger');
-    });
-
-  document.getElementById('btnIngresar').addEventListener('click', () => {
-    const selectedId = document.getElementById('clientSelect').value;
-    if (!selectedId) {
-      showFlashMessage('Debes seleccionar un cliente.', 'danger');
-      return;
-    }
-
-    localStorage.setItem('selectedClientId', selectedId);
-    window.location.href = 'nomina/nomina.html';
   });
 
 });

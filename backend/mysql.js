@@ -15,7 +15,7 @@ connection.connect(function(err){
         console.log('Error connecting to MySQL: ' + err.fatal);
         return;
     }
-    console.log('Conexión a MySQL exitosa.');
+    console.log('Conexion a MySQL exitosa.');
 })
 
 // Función para comprobar la clave en la base de datos
@@ -32,5 +32,13 @@ function checkPassword(password, callback) {
       }
     });
 }
+
+function getClient(callback) {
+  const query = 'SELECT idClient, name FROM client';
+  connection.query(query, (err, results) => {
+    if (err) return callback(err, null);
+    return callback(null, results);
+  });
+}
   
-module.exports = { checkPassword };
+module.exports = { checkPassword, getClient };
