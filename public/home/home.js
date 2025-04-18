@@ -1,3 +1,11 @@
+// Evento para detectar "Enter" en el input
+document.getElementById("clientSelect").addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+      event.preventDefault();
+      document.getElementById("btnIngresar").click();
+  }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const manageEmployeesItem = document.getElementById('manageEmployees');
   const employee = JSON.parse(localStorage.getItem('employee'));

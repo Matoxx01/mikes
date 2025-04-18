@@ -4,7 +4,6 @@ body {
     background-color: #B6DCFF;
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin: 0;
 }
 
@@ -173,6 +172,43 @@ h2 {
 
 .inputContainer label {
     margin-left: 7px;
+}
+
+.titleClient {
+    margin-bottom: 20px;
+    margin-left: 30px;
+}
+
+.clientChoose {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 30px;
+}
+
+.clientSelect {
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 15px;
+    border: none;
+    font-size: 16px;
+    width: 200px;
+}
+
+.btnIngresar {
+    background-color: #6596FF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btnIngresar:hover {
+    background-color: #ffffff;
+    color: #6596FF;
 }
 
 /* Flash Messages */
